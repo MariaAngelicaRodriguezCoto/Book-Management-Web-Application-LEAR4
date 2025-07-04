@@ -1,6 +1,12 @@
 namespace DefaultNamespace;
+using Microsoft.EntityFrameworkCore;
 
-public class ApplicationDbContext
+public class ApplicationDbContext : DbContext
 {
-    
+    public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options)
+        : base(options)
+    {
+    }
+
+    public DbSet<Book> Books { get; set; }
 }

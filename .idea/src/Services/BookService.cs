@@ -1,4 +1,4 @@
-namespace DefaultNamespace;
+namespace a;
 
 public class BookService
 {
