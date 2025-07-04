@@ -1,0 +1,55 @@
+.validation-summary-errors ul {
+    list-style: none;
+    padding-left: 0;
+}
+
+.card {
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    border-radius: 0.5rem;
+    margin-bottom: 1.5rem;
+}
+
+.card-body {
+    padding: 2rem;
+}
+
+.table-hover tbody tr:hover {
+    background-color: rgba(0,0,0,0.075);
+}
+
+.btn-group {
+    gap: 5px;
+}
+
+.btn {
+    border-radius: 0.25rem;
+}
+
+.form-group {
+    margin-bottom: 1rem;
+}
+
+.form-control {
+    border-radius: 0.25rem;
+}
+
+.alert {
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    border-radius: 0.25rem;
+}
+
+@media (max-width: 768px) {
+    .container {
+        padding: 1rem;
+    }
+
+    .btn-group {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .btn-group .btn {
+        margin-bottom: 0.5rem;
+    }
+}
