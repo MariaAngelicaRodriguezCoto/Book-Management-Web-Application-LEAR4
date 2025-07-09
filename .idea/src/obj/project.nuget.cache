@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "9HRchpn+L9A=",
+  "dgSpecHash": "aF3+OSRmlcRPbjzgEC9opoHIA1K0ujlvc8S1udSrIApTg4YCrFLMY7HRjZhv7dZfXNlp7kNmEKDH2VDvt+vwHQ==",
   "success": true,
   "projectFilePath": "/Users/angelicarodriguez/Documents/Book-Management-Web-Application-LEAR4/Book-Management-Web-Application-LEAR4/.idea/src/BookManagement.csproj",
   "expectedPackageFiles": [
@@ -48,10 +48,7 @@
     "/Users/angelicarodriguez/.nuget/packages/system.text.encoding.codepages/6.0.0/system.text.encoding.codepages.6.0.0.nupkg.sha512",
     "/Users/angelicarodriguez/.nuget/packages/system.text.encodings.web/8.0.0/system.text.encodings.web.8.0.0.nupkg.sha512",
     "/Users/angelicarodriguez/.nuget/packages/system.text.json/8.0.0/system.text.json.8.0.0.nupkg.sha512",
-    "/Users/angelicarodriguez/.nuget/packages/system.threading.channels/6.0.0/system.threading.channels.6.0.0.nupkg.sha512",
-    "/Users/angelicarodriguez/.nuget/packages/microsoft.netcore.app.ref/8.0.17/microsoft.netcore.app.ref.8.0.17.nupkg.sha512",
-    "/Users/angelicarodriguez/.nuget/packages/microsoft.aspnetcore.app.ref/8.0.17/microsoft.aspnetcore.app.ref.8.0.17.nupkg.sha512",
-    "/Users/angelicarodriguez/.nuget/packages/microsoft.netcore.app.host.osx-arm64/8.0.17/microsoft.netcore.app.host.osx-arm64.8.0.17.nupkg.sha512"
+    "/Users/angelicarodriguez/.nuget/packages/system.threading.channels/6.0.0/system.threading.channels.6.0.0.nupkg.sha512"
   ],
   "logs": []
 }

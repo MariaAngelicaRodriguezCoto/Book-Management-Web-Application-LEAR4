@@ -1,5 +1,4 @@
 /Users/angelicarodriguez/Documents/Book-Management-Web-Application-LEAR4/Book-Management-Web-Application-LEAR4/.idea/src/obj/Debug/net8.0/BookManagement.csproj.AssemblyReference.cache
-/Users/angelicarodriguez/Documents/Book-Management-Web-Application-LEAR4/Book-Management-Web-Application-LEAR4/.idea/src/obj/Debug/net8.0/rpswa.dswa.cache.json
 /Users/angelicarodriguez/Documents/Book-Management-Web-Application-LEAR4/Book-Management-Web-Application-LEAR4/.idea/src/obj/Debug/net8.0/BookManagement.GeneratedMSBuildEditorConfig.editorconfig
 /Users/angelicarodriguez/Documents/Book-Management-Web-Application-LEAR4/Book-Management-Web-Application-LEAR4/.idea/src/obj/Debug/net8.0/BookManagement.AssemblyInfoInputs.cache
 /Users/angelicarodriguez/Documents/Book-Management-Web-Application-LEAR4/Book-Management-Web-Application-LEAR4/.idea/src/obj/Debug/net8.0/BookManagement.AssemblyInfo.cs
@@ -10,7 +9,6 @@
 /Users/angelicarodriguez/Documents/Book-Management-Web-Application-LEAR4/Book-Management-Web-Application-LEAR4/.idea/src/obj/Debug/net8.0/BookManagement.sourcelink.json
 /Users/angelicarodriguez/Documents/Book-Management-Web-Application-LEAR4/Book-Management-Web-Application-LEAR4/.idea/src/bin/Debug/net8.0/appsettings.json
 /Users/angelicarodriguez/Documents/Book-Management-Web-Application-LEAR4/Book-Management-Web-Application-LEAR4/.idea/src/bin/Debug/net8.0/BookManagement.staticwebassets.runtime.json
-/Users/angelicarodriguez/Documents/Book-Management-Web-Application-LEAR4/Book-Management-Web-Application-LEAR4/.idea/src/bin/Debug/net8.0/BookManagement.staticwebassets.endpoints.json
 /Users/angelicarodriguez/Documents/Book-Management-Web-Application-LEAR4/Book-Management-Web-Application-LEAR4/.idea/src/bin/Debug/net8.0/BookManagement
 /Users/angelicarodriguez/Documents/Book-Management-Web-Application-LEAR4/Book-Management-Web-Application-LEAR4/.idea/src/bin/Debug/net8.0/BookManagement.deps.json
 /Users/angelicarodriguez/Documents/Book-Management-Web-Application-LEAR4/Book-Management-Web-Application-LEAR4/.idea/src/bin/Debug/net8.0/BookManagement.runtimeconfig.json
@@ -89,17 +87,17 @@
 /Users/angelicarodriguez/Documents/Book-Management-Web-Application-LEAR4/Book-Management-Web-Application-LEAR4/.idea/src/bin/Debug/net8.0/tr/Microsoft.CodeAnalysis.Workspaces.resources.dll
 /Users/angelicarodriguez/Documents/Book-Management-Web-Application-LEAR4/Book-Management-Web-Application-LEAR4/.idea/src/bin/Debug/net8.0/zh-Hans/Microsoft.CodeAnalysis.Workspaces.resources.dll
 /Users/angelicarodriguez/Documents/Book-Management-Web-Application-LEAR4/Book-Management-Web-Application-LEAR4/.idea/src/bin/Debug/net8.0/zh-Hant/Microsoft.CodeAnalysis.Workspaces.resources.dll
-/Users/angelicarodriguez/Documents/Book-Management-Web-Application-LEAR4/Book-Management-Web-Application-LEAR4/.idea/src/obj/Debug/net8.0/rjimswa.dswa.cache.json
-/Users/angelicarodriguez/Documents/Book-Management-Web-Application-LEAR4/Book-Management-Web-Application-LEAR4/.idea/src/obj/Debug/net8.0/rjsmrazor.dswa.cache.json
-/Users/angelicarodriguez/Documents/Book-Management-Web-Application-LEAR4/Book-Management-Web-Application-LEAR4/.idea/src/obj/Debug/net8.0/rjsmcshtml.dswa.cache.json
 /Users/angelicarodriguez/Documents/Book-Management-Web-Application-LEAR4/Book-Management-Web-Application-LEAR4/.idea/src/obj/Debug/net8.0/scopedcss/bundle/BookManagement.styles.css
 /Users/angelicarodriguez/Documents/Book-Management-Web-Application-LEAR4/Book-Management-Web-Application-LEAR4/.idea/src/obj/Debug/net8.0/staticwebassets.build.json
-/Users/angelicarodriguez/Documents/Book-Management-Web-Application-LEAR4/Book-Management-Web-Application-LEAR4/.idea/src/obj/Debug/net8.0/staticwebassets.build.json.cache
 /Users/angelicarodriguez/Documents/Book-Management-Web-Application-LEAR4/Book-Management-Web-Application-LEAR4/.idea/src/obj/Debug/net8.0/staticwebassets.development.json
-/Users/angelicarodriguez/Documents/Book-Management-Web-Application-LEAR4/Book-Management-Web-Application-LEAR4/.idea/src/obj/Debug/net8.0/staticwebassets.build.endpoints.json
-/Users/angelicarodriguez/Documents/Book-Management-Web-Application-LEAR4/Book-Management-Web-Application-LEAR4/.idea/src/obj/Debug/net8.0/BookMana.AEF0CC0B.Up2Date
 /Users/angelicarodriguez/Documents/Book-Management-Web-Application-LEAR4/Book-Management-Web-Application-LEAR4/.idea/src/obj/Debug/net8.0/BookManagement.dll
 /Users/angelicarodriguez/Documents/Book-Management-Web-Application-LEAR4/Book-Management-Web-Application-LEAR4/.idea/src/obj/Debug/net8.0/refint/BookManagement.dll
 /Users/angelicarodriguez/Documents/Book-Management-Web-Application-LEAR4/Book-Management-Web-Application-LEAR4/.idea/src/obj/Debug/net8.0/BookManagement.pdb
 /Users/angelicarodriguez/Documents/Book-Management-Web-Application-LEAR4/Book-Management-Web-Application-LEAR4/.idea/src/obj/Debug/net8.0/BookManagement.genruntimeconfig.cache
 /Users/angelicarodriguez/Documents/Book-Management-Web-Application-LEAR4/Book-Management-Web-Application-LEAR4/.idea/src/obj/Debug/net8.0/ref/BookManagement.dll
+/Users/angelicarodriguez/Documents/Book-Management-Web-Application-LEAR4/Book-Management-Web-Application-LEAR4/.idea/src/obj/Debug/net8.0/staticwebassets/msbuild.BookManagement.Microsoft.AspNetCore.StaticWebAssets.props
+/Users/angelicarodriguez/Documents/Book-Management-Web-Application-LEAR4/Book-Management-Web-Application-LEAR4/.idea/src/obj/Debug/net8.0/staticwebassets/msbuild.build.BookManagement.props
+/Users/angelicarodriguez/Documents/Book-Management-Web-Application-LEAR4/Book-Management-Web-Application-LEAR4/.idea/src/obj/Debug/net8.0/staticwebassets/msbuild.buildMultiTargeting.BookManagement.props
+/Users/angelicarodriguez/Documents/Book-Management-Web-Application-LEAR4/Book-Management-Web-Application-LEAR4/.idea/src/obj/Debug/net8.0/staticwebassets/msbuild.buildTransitive.BookManagement.props
+/Users/angelicarodriguez/Documents/Book-Management-Web-Application-LEAR4/Book-Management-Web-Application-LEAR4/.idea/src/obj/Debug/net8.0/staticwebassets.pack.json
+/Users/angelicarodriguez/Documents/Book-Management-Web-Application-LEAR4/Book-Management-Web-Application-LEAR4/.idea/src/obj/Debug/net8.0/BookManagement.csproj.CopyComplete

@@ -1,0 +1,29 @@
+{
+  "Files": [
+    {
+      "Id": "/Users/angelicarodriguez/Documents/Book-Management-Web-Application-LEAR4/Book-Management-Web-Application-LEAR4/.idea/src/wwwroot/css/site.css",
+      "PackagePath": "staticwebassets/css/site.css"
+    },
+    {
+      "Id": "/Users/angelicarodriguez/Documents/Book-Management-Web-Application-LEAR4/Book-Management-Web-Application-LEAR4/.idea/src/wwwroot/js/site.js",
+      "PackagePath": "staticwebassets/js/site.js"
+    },
+    {
+      "Id": "obj/Debug/net8.0/staticwebassets/msbuild.BookManagement.Microsoft.AspNetCore.StaticWebAssets.props",
+      "PackagePath": "build\\Microsoft.AspNetCore.StaticWebAssets.props"
+    },
+    {
+      "Id": "obj/Debug/net8.0/staticwebassets/msbuild.build.BookManagement.props",
+      "PackagePath": "build\\BookManagement.props"
+    },
+    {
+      "Id": "obj/Debug/net8.0/staticwebassets/msbuild.buildMultiTargeting.BookManagement.props",
+      "PackagePath": "buildMultiTargeting\\BookManagement.props"
+    },
+    {
+      "Id": "obj/Debug/net8.0/staticwebassets/msbuild.buildTransitive.BookManagement.props",
+      "PackagePath": "buildTransitive\\BookManagement.props"
+    }
+  ],
+  "ElementsToRemove": []
+}

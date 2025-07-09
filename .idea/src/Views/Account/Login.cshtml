@@ -1,46 +1,69 @@
-namespace BookManagement.Views.Account;
 @model BookManagement.Models.ViewModels.LoginViewModel
 
-<div class="container">
+@{
+    ViewData["Title"] = "Login";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="auth-container">
     <div class="row justify-content-center">
-        <div class="col-md-6">
-            <div class="card mt-5">
-                <div class="card-body">
-                    <h2 class="card-title text-center">Log in</h2>
-                    <form asp-action="Login" asp-route-returnurl="@ViewData["ReturnUrl"]" method="post">
-                        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+        <div class="col-md-6 col-lg-5">
+            <div class="auth-card">
+                <div class="auth-header text-center mb-4">
+                    <div class="auth-logo mb-3">
+                        <i class="fas fa-book-open fa-3x text-primary"></i>
+                    </div>
+                    <h2 class="auth-title">Welcome Back</h2>
+                    <p class="text-muted">Sign in to your BookManager account</p>
+                </div>
 
-                        <div class="form-group">
-                            <label asp-for="Email"></label>
-                            <input asp-for="Email" class="form-control" />
-                            <span asp-validation-for="Email" class="text-danger"></span>
+                <form asp-action="Login" asp-route-returnurl="@ViewData["ReturnUrl"]" method="post" id="loginForm">
+                    <div asp-validation-summary="ModelOnly" class="alert alert-danger" role="alert"></div>
+                    
+                    <div class="form-floating mb-3">
+                        <input asp-for="Email" class="form-control" placeholder="name@example.com" autocomplete="username" />
+                        <label asp-for="Email">
+                            <i class="fas fa-envelope me-2"></i>Email
+                        </label>
+                        <span asp-validation-for="Email" class="text-danger"></span>
+                    </div>
+
+                    <div class="form-floating mb-3">
+                        <input asp-for="Password" class="form-control" placeholder="Password" type="password" autocomplete="current-password" />
+                        <label asp-for="Password">
+                            <i class="fas fa-lock me-2"></i>Password
+                        </label>
+                        <div class="password-toggle">
+                            <button type="button" class="btn btn-link p-0" onclick="togglePassword()">
+                                <i class="fas fa-eye" id="passwordToggleIcon"></i>
+                            </button>
                         </div>
+                        <span asp-validation-for="Password" class="text-danger"></span>
+                    </div>
 
-                        <div class="form-group">
-                            <label asp-for="Password"></label>
-                            <input asp-for="Password" class="form-control" type="password" />
-                            <span asp-validation-for="Password" class="text-danger"></span>
-                        </div>
-
-                        <div class="form-group">
-                            <div class="custom-control custom-checkbox">
-                                <input asp-for="RememberMe" class="custom-control-input" />
-                                <label asp-for="RememberMe" class="custom-control-label"></label>
+                    <div class="row mb-3">
+                        <div class="col-md-6">
+                            <div class="form-check">
+                                <input asp-for="RememberMe" class="form-check-input" />
+                                <label asp-for="RememberMe" class="form-check-label">
+                                    Remember me
+                                </label>
                             </div>
                         </div>
+                    </div>
 
-                        <div class="form-group">
-                            <button type="submit" class="btn btn-primary btn-block">Log in</button>
-                        </div>
+                    <button type="submit" class="btn btn-primary btn-lg w-100 mb-3">
+                        <i class="fas fa-sign-in-alt me-2"></i>
+                        Sign In
+                    </button>
 
-                        <div class="text-center">
-                            <p>
-                                Don't have an account? 
-                                <a asp-action="Register">Register here</a>
-                            </p>
-                        </div>
-                    </form>
-                </div>
+                    <div class="text-center">
+                        <span class="text-muted">Don't have an account? </span>
+                        <a asp-action="Register" asp-route-returnurl="@ViewData["ReturnUrl"]" class="text-decoration-none fw-bold">
+                            Create one here
+                        </a>
+                    </div>
+                </form>
             </div>
         </div>
     </div>
@@ -48,4 +71,47 @@ namespace BookManagement.Views.Account;
 
 @section Scripts {
     @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+    
+    <script>
+        function togglePassword() {
+            const passwordInput = document.querySelector('input[name="Password"]');
+            const toggleIcon = document.getElementById('passwordToggleIcon');
+            
+            if (passwordInput.type === 'password') {
+                passwordInput.type = 'text';
+                toggleIcon.classList.remove('fa-eye');
+                toggleIcon.classList.add('fa-eye-slash');
+            } else {
+                passwordInput.type = 'password';
+                toggleIcon.classList.remove('fa-eye-slash');
+                toggleIcon.classList.add('fa-eye');
+            }
+        }
+
+        document.getElementById('loginForm').addEventListener('submit', function(e) {
+            const submitBtn = this.querySelector('button[type="submit"]');
+            submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin me-2"></i>Signing In...';
+            submitBtn.disabled = true;
+        });
+
+        document.querySelector('input[name="Email"]').focus();
+
+        document.addEventListener('keypress', function(e) {
+            if (e.key === 'Enter' && e.target.tagName !== 'BUTTON') {
+                document.getElementById('loginForm').submit();
+            }
+        });
+
+        const inputs = document.querySelectorAll('input[required]');
+        inputs.forEach(input => {
+            input.addEventListener('blur', function() {
+                if (this.value.trim() === '') {
+                    this.classList.add('is-invalid');
+                } else {
+                    this.classList.remove('is-invalid');
+                    this.classList.add('is-valid');
+                }
+            });
+        });
+    </script>
 }

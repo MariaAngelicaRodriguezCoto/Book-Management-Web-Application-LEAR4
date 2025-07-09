@@ -1,1 +1,58 @@
-{"Version":1,"Hash":"zrHhvprbQ7220SOATw83fObHQrDEkS3uVRmwfSZ6A4c=","Source":"BookManagement","BasePath":"_content/BookManagement","Mode":"Default","ManifestType":"Build","ReferencedProjectsConfiguration":[],"DiscoveryPatterns":[{"Name":"BookManagement/wwwroot","Source":"BookManagement","ContentRoot":"/Users/angelicarodriguez/Documents/Book-Management-Web-Application-LEAR4/Book-Management-Web-Application-LEAR4/.idea/src/wwwroot/","BasePath":"_content/BookManagement","Pattern":"**"}],"Assets":[{"Identity":"/Users/angelicarodriguez/Documents/Book-Management-Web-Application-LEAR4/Book-Management-Web-Application-LEAR4/.idea/src/wwwroot/css/site.css","SourceId":"BookManagement","SourceType":"Discovered","ContentRoot":"/Users/angelicarodriguez/Documents/Book-Management-Web-Application-LEAR4/Book-Management-Web-Application-LEAR4/.idea/src/wwwroot/","BasePath":"_content/BookManagement","RelativePath":"css/site#[.{fingerprint}]?.css","AssetKind":"All","AssetMode":"All","AssetRole":"Primary","AssetMergeBehavior":"","AssetMergeSource":"","RelatedAsset":"","AssetTraitName":"","AssetTraitValue":"","Fingerprint":"6r9tusn19a","Integrity":"XqtmuY+n6UyrQgQ55AjtXki3tC/12yP2+wVTBabRlLA=","CopyToOutputDirectory":"Never","CopyToPublishDirectory":"PreserveNewest","OriginalItemSpec":"wwwroot/css/site.css","FileLength":753,"LastWriteTime":"2025-07-04T16:49:37+00:00"},{"Identity":"/Users/angelicarodriguez/Documents/Book-Management-Web-Application-LEAR4/Book-Management-Web-Application-LEAR4/.idea/src/wwwroot/js/site.js","SourceId":"BookManagement","SourceType":"Discovered","ContentRoot":"/Users/angelicarodriguez/Documents/Book-Management-Web-Application-LEAR4/Book-Management-Web-Application-LEAR4/.idea/src/wwwroot/","BasePath":"_content/BookManagement","RelativePath":"js/site#[.{fingerprint}]?.js","AssetKind":"All","AssetMode":"All","AssetRole":"Primary","AssetMergeBehavior":"","AssetMergeSource":"","RelatedAsset":"","AssetTraitName":"","AssetTraitValue":"","Fingerprint":"uemm0p1ugl","Integrity":"9q5YYSOzfnAyy8wYxguqp13ezDTC5OnHXiFPfC8sj8M=","CopyToOutputDirectory":"Never","CopyToPublishDirectory":"PreserveNewest","OriginalItemSpec":"wwwroot/js/site.js","FileLength":974,"LastWriteTime":"2025-07-04T16:49:20+00:00"}],"Endpoints":[{"Route":"css/site.6r9tusn19a.css","AssetFile":"/Users/angelicarodriguez/Documents/Book-Management-Web-Application-LEAR4/Book-Management-Web-Application-LEAR4/.idea/src/wwwroot/css/site.css","Selectors":[],"ResponseHeaders":[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Content-Length","Value":"753"},{"Name":"Content-Type","Value":"text/css"},{"Name":"ETag","Value":"\"XqtmuY+n6UyrQgQ55AjtXki3tC/12yP2+wVTBabRlLA=\""},{"Name":"Last-Modified","Value":"Fri, 04 Jul 2025 16:49:37 GMT"},{"Name":"Cache-Control","Value":"max-age=31536000, immutable"}],"EndpointProperties":[{"Name":"fingerprint","Value":"6r9tusn19a"},{"Name":"label","Value":"css/site.css"},{"Name":"integrity","Value":"sha256-XqtmuY+n6UyrQgQ55AjtXki3tC/12yP2+wVTBabRlLA="}]},{"Route":"css/site.css","AssetFile":"/Users/angelicarodriguez/Documents/Book-Management-Web-Application-LEAR4/Book-Management-Web-Application-LEAR4/.idea/src/wwwroot/css/site.css","Selectors":[],"ResponseHeaders":[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Content-Length","Value":"753"},{"Name":"Content-Type","Value":"text/css"},{"Name":"ETag","Value":"\"XqtmuY+n6UyrQgQ55AjtXki3tC/12yP2+wVTBabRlLA=\""},{"Name":"Last-Modified","Value":"Fri, 04 Jul 2025 16:49:37 GMT"},{"Name":"Cache-Control","Value":"no-cache"}],"EndpointProperties":[{"Name":"integrity","Value":"sha256-XqtmuY+n6UyrQgQ55AjtXki3tC/12yP2+wVTBabRlLA="}]},{"Route":"js/site.js","AssetFile":"/Users/angelicarodriguez/Documents/Book-Management-Web-Application-LEAR4/Book-Management-Web-Application-LEAR4/.idea/src/wwwroot/js/site.js","Selectors":[],"ResponseHeaders":[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Content-Length","Value":"974"},{"Name":"Content-Type","Value":"text/javascript"},{"Name":"ETag","Value":"\"9q5YYSOzfnAyy8wYxguqp13ezDTC5OnHXiFPfC8sj8M=\""},{"Name":"Last-Modified","Value":"Fri, 04 Jul 2025 16:49:20 GMT"},{"Name":"Cache-Control","Value":"no-cache"}],"EndpointProperties":[{"Name":"integrity","Value":"sha256-9q5YYSOzfnAyy8wYxguqp13ezDTC5OnHXiFPfC8sj8M="}]},{"Route":"js/site.uemm0p1ugl.js","AssetFile":"/Users/angelicarodriguez/Documents/Book-Management-Web-Application-LEAR4/Book-Management-Web-Application-LEAR4/.idea/src/wwwroot/js/site.js","Selectors":[],"ResponseHeaders":[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Content-Length","Value":"974"},{"Name":"Content-Type","Value":"text/javascript"},{"Name":"ETag","Value":"\"9q5YYSOzfnAyy8wYxguqp13ezDTC5OnHXiFPfC8sj8M=\""},{"Name":"Last-Modified","Value":"Fri, 04 Jul 2025 16:49:20 GMT"},{"Name":"Cache-Control","Value":"max-age=31536000, immutable"}],"EndpointProperties":[{"Name":"fingerprint","Value":"uemm0p1ugl"},{"Name":"label","Value":"js/site.js"},{"Name":"integrity","Value":"sha256-9q5YYSOzfnAyy8wYxguqp13ezDTC5OnHXiFPfC8sj8M="}]}]}
+{
+  "Version": 1,
+  "Hash": "PTMARGcDySUWRaLGeZwtLt9ERMgVj6bUpwe6g0Ktsog=",
+  "Source": "BookManagement",
+  "BasePath": "_content/BookManagement",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [
+    {
+      "Name": "BookManagement/wwwroot",
+      "Source": "BookManagement",
+      "ContentRoot": "/Users/angelicarodriguez/Documents/Book-Management-Web-Application-LEAR4/Book-Management-Web-Application-LEAR4/.idea/src/wwwroot/",
+      "BasePath": "_content/BookManagement",
+      "Pattern": "**"
+    }
+  ],
+  "Assets": [
+    {
+      "Identity": "/Users/angelicarodriguez/Documents/Book-Management-Web-Application-LEAR4/Book-Management-Web-Application-LEAR4/.idea/src/wwwroot/css/site.css",
+      "SourceId": "BookManagement",
+      "SourceType": "Discovered",
+      "ContentRoot": "/Users/angelicarodriguez/Documents/Book-Management-Web-Application-LEAR4/Book-Management-Web-Application-LEAR4/.idea/src/wwwroot/",
+      "BasePath": "_content/BookManagement",
+      "RelativePath": "css/site.css",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot/css/site.css"
+    },
+    {
+      "Identity": "/Users/angelicarodriguez/Documents/Book-Management-Web-Application-LEAR4/Book-Management-Web-Application-LEAR4/.idea/src/wwwroot/js/site.js",
+      "SourceId": "BookManagement",
+      "SourceType": "Discovered",
+      "ContentRoot": "/Users/angelicarodriguez/Documents/Book-Management-Web-Application-LEAR4/Book-Management-Web-Application-LEAR4/.idea/src/wwwroot/",
+      "BasePath": "_content/BookManagement",
+      "RelativePath": "js/site.js",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot/js/site.js"
+    }
+  ]
+}
