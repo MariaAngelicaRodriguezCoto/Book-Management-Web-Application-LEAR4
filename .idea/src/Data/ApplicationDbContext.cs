@@ -1,6 +1,8 @@
-namespace DefaultNamespace;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
+using BookManagement.Models;
+
+namespace BookManagement.Data;
 
 public class ApplicationDbContext : IdentityDbContext<ApplicationUser>
 {
@@ -9,7 +11,7 @@ public class ApplicationDbContext : IdentityDbContext<ApplicationUser>
     {
     }
 
-    public DbSet<Book> Books { get; set; }
+    public DbSet<Book> Books { get; set; } = null!;
 
     protected override void OnModelCreating(ModelBuilder builder)
     {
@@ -17,10 +19,10 @@ public class ApplicationDbContext : IdentityDbContext<ApplicationUser>
         
         builder.Entity<Book>(entity =>
         {
-            entity.Property(e => e.Title).IsRequired().HasMaxLength(100);
+            entity.Property(e => e.Title).IsRequired().HasMaxLength(200);
             entity.Property(e => e.Author).IsRequired().HasMaxLength(100);
             entity.Property(e => e.Genre).IsRequired().HasMaxLength(50);
-            entity.Property(e => e.Description).HasMaxLength(500);
+            entity.Property(e => e.Description).HasMaxLength(2000);
         });
     }
 }

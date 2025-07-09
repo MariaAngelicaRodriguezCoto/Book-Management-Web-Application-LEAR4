@@ -1,6 +1,9 @@
-namespace DefaultNamespace;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using BookManagement.Models;
+using BookManagement.Services;
+
+namespace BookManagement.Controllers;
 
 [Authorize]
 public class BooksController : Controller

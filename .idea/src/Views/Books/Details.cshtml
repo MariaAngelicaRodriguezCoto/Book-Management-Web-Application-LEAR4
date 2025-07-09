@@ -1,5 +1,5 @@
-namespace DefaultNamespace;
-@model Book
+namespace BookManagement.Views.Books;
+@model BookManagement.Models.Book
 
 <div class="container">
     <h2>Book Details</h2>
@@ -16,8 +16,8 @@ namespace DefaultNamespace;
                 <dt class="col-sm-3">Genre</dt>
                 <dd class="col-sm-9">@Model.Genre</dd>
 
-                <dt class="col-sm-3">Year</dt>
-                <dd class="col-sm-9">@Model.Year</dd>
+                <dt class="col-sm-3">Publication Date</dt>
+                <dd class="col-sm-9">@Model.PublicationDate.ToShortDateString()</dd>
 
                 <dt class="col-sm-3">Description</dt>
                 <dd class="col-sm-9">@Model.Description</dd>

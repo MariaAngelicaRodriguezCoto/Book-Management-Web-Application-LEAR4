@@ -1,5 +1,5 @@
-namespace DefaultNamespace;
-@model IEnumerable<Book>
+namespace BookManagement.Views.Books;
+@model IEnumerable<BookManagement.Models.Book>
 
 <div class="container">
     <h2>Book Collection</h2>
@@ -37,7 +37,7 @@ namespace DefaultNamespace;
                     <th>Title</th>
                     <th>Author</th>
                     <th>Genre</th>
-                    <th>Year</th>
+                    <th>Publication Date</th>
                     <th>Actions</th>
                 </tr>
             </thead>
@@ -48,7 +48,7 @@ namespace DefaultNamespace;
                         <td>@book.Title</td>
                         <td>@book.Author</td>
                         <td>@book.Genre</td>
-                        <td>@book.Year</td>
+                        <td>@book.PublicationDate.ToShortDateString()</td>
                         <td>
                             <div class="btn-group">
                                 <a asp-action="Details" asp-route-id="@book.Id" 

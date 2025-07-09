@@ -1,5 +1,8 @@
-namespace a;
 using Microsoft.EntityFrameworkCore;
+using BookManagement.Data;
+using BookManagement.Models;
+
+namespace BookManagement.Services;
 
 public class BookService : IBookService
 {
@@ -13,11 +16,11 @@ public class BookService : IBookService
     public async Task<IEnumerable<Book>> GetAllBooksAsync()
     {
         return await _context.Books
-            .OrderByDescending(b => b.Year)
+            .OrderByDescending(b => b.PublicationDate)
             .ToListAsync();
     }
 
-    public async Task<Book> GetBookByIdAsync(int id)
+    public async Task<Book?> GetBookByIdAsync(int id)
     {
         return await _context.Books.FindAsync(id);
     }
@@ -50,11 +53,12 @@ public class BookService : IBookService
         if (string.IsNullOrWhiteSpace(searchTerm))
             return await GetAllBooksAsync();
 
+        searchTerm = searchTerm.ToLower();
         return await _context.Books
-            .Where(b => b.Title.Contains(searchTerm) || 
-                        b.Author.Contains(searchTerm) || 
-                        b.Genre.Contains(searchTerm))
-            .OrderByDescending(b => b.Year)
+            .Where(b => b.Title.ToLower().Contains(searchTerm) || 
+                       b.Author.ToLower().Contains(searchTerm) || 
+                       b.Genre.ToLower().Contains(searchTerm))
+            .OrderByDescending(b => b.PublicationDate)
             .ToListAsync();
     }
 }
