@@ -1,164 +1,122 @@
 @model BookManagement.Models.ViewModels.RegisterViewModel
-
 @{
     ViewData["Title"] = "Register";
-    Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<div class="auth-container">
-    <div class="row justify-content-center">
-        <div class="col-md-6 col-lg-5">
-            <div class="auth-card">
-                <div class="auth-header text-center mb-4">
-                    <div class="auth-logo mb-3">
-                        <i class="fas fa-user-plus fa-3x text-success"></i>
+@section Styles {
+    <link href="~/css/register.css" rel="stylesheet" />
+}
+
+<div class="register-wrapper">
+    <div class="register-background">
+        <div class="background-shapes">
+            <div class="shape shape-1"></div>
+            <div class="shape shape-2"></div>
+            <div class="shape shape-3"></div>
+            <div class="shape shape-4"></div>
+        </div>
+    </div>
+    
+    <div class="register-container">
+        <div class="register-card">
+            <div class="register-header">
+                <div class="logo-container">
+                    <h1 class="brand-name">BookManager</h1>
+                </div>
+                <div class="welcome-text">
+                    <h2>Create Account</h2>
+                    <p>Join BookManager and start building your library</p>
+                </div>
+            </div>
+
+            <form asp-action="Register" asp-route-returnurl="@ViewData["ReturnUrl"]" method="post" id="registerForm" class="register-form">
+                <div asp-validation-summary="ModelOnly" class="alert alert-danger validation-summary" role="alert"></div>
+                
+                <div class="name-row">
+                    <div class="form-group half-width">
+                        <div class="input-container">
+                            <label class="label">First Name</label>
+                            <input asp-for="FirstName" 
+                                   class="form-input" 
+                                   placeholder="John" 
+                                   autocomplete="given-name" 
+                                   required />
+                        </div>
+                        <span asp-validation-for="FirstName" class="field-validation-error"></span>
                     </div>
-                    <h2 class="auth-title">Create Account</h2>
-                    <p class="text-muted">Join BookManager and start building your library</p>
+
+                    <div class="form-group half-width">
+                        <div class="input-container">
+                            <label class="label">Last Name</label>
+                            <input asp-for="LastName" 
+                                   class="form-input" 
+                                   placeholder="Doe" 
+                                   autocomplete="family-name" 
+                                   required />
+                        </div>
+                        <span asp-validation-for="LastName" class="field-validation-error"></span>
+                    </div>
                 </div>
 
-                <form asp-action="Register" asp-route-returnurl="@ViewData["ReturnUrl"]" method="post" id="registerForm">
-                    <div asp-validation-summary="ModelOnly" class="alert alert-danger" role="alert"></div>
-                    
-                    <div class="row">
-                        <div class="col-md-6">
-                            <div class="form-floating mb-3">
-                                <input asp-for="FirstName" class="form-control" placeholder="First Name" autocomplete="given-name" />
-                                <label asp-for="FirstName">
-                                    <i class="fas fa-user me-2"></i>First Name
-                                </label>
-                                <span asp-validation-for="FirstName" class="text-danger"></span>
-                            </div>
+                <div class="form-group">
+                    <div class="input-container">
+                        <label class="label">Email Address</label>
+                        <input asp-for="Email" 
+                               class="form-input" 
+                               placeholder="john.doe@example.com" 
+                               autocomplete="email" 
+                               required />
                         </div>
-                        <div class="col-md-6">
-                            <div class="form-floating mb-3">
-                                <input asp-for="LastName" class="form-control" placeholder="Last Name" autocomplete="family-name" />
-                                <label asp-for="LastName">
-                                    <i class="fas fa-user me-2"></i>Last Name
-                                </label>
-                                <span asp-validation-for="LastName" class="text-danger"></span>
-                            </div>
-                        </div>
+                    <span asp-validation-for="Email" class="field-validation-error"></span>
+                </div>
+
+                <div class="form-group">
+                    <div class="input-container">
+                        <label class="label">Password</label>
+                        <input asp-for="Password" 
+                               class="form-input" 
+                               placeholder="password" 
+                               type="password" 
+                               autocomplete="new-password" 
+                               required />
                     </div>
+                    <span asp-validation-for="Password" class="field-validation-error"></span>
+                </div>
 
-                    <div class="form-floating mb-3">
-                        <input asp-for="Email" class="form-control" placeholder="name@example.com" autocomplete="username" />
-                        <label asp-for="Email">
-                            <i class="fas fa-envelope me-2"></i>Email
-                        </label>
-                        <span asp-validation-for="Email" class="text-danger"></span>
+                <div class="form-group">
+                    <div class="input-container">
+                        <label class="label">Confirm Password</label>
+                        <input asp-for="ConfirmPassword" 
+                               class="form-input" 
+                               placeholder="password" 
+                               type="password" 
+                               autocomplete="new-password" 
+                               required />
+                        <div class="password-match" id="passwordMatch"></div>
                     </div>
+                    <span asp-validation-for="ConfirmPassword" class="field-validation-error"></span>
+                </div>
 
-                    <div class="form-floating mb-3">
-                        <input asp-for="Password" class="form-control" placeholder="Password" type="password" autocomplete="new-password" />
-                        <label asp-for="Password">
-                            <i class="fas fa-lock me-2"></i>Password
-                        </label>
-                        <div class="password-toggle">
-                            <button type="button" class="btn btn-link p-0" onclick="togglePassword('Password')">
-                                <i class="fas fa-eye" id="passwordToggleIcon"></i>
-                            </button>
-                        </div>
-                        <span asp-validation-for="Password" class="text-danger"></span>
+                <button type="submit" class="register-btn" id="registerBtn">
+                    <span class="btn-text">Create Account</span>
+                    <div class="btn-loader">
+                        <div class="spinner"></div>
                     </div>
+                </button>
 
-                    <div class="form-floating mb-3">
-                        <input asp-for="ConfirmPassword" class="form-control" placeholder="Confirm Password" type="password" autocomplete="new-password" />
-                        <label asp-for="ConfirmPassword">
-                            <i class="fas fa-lock me-2"></i>Confirm Password
-                        </label>
-                        <div class="password-toggle">
-                            <button type="button" class="btn btn-link p-0" onclick="togglePassword('ConfirmPassword')">
-                                <i class="fas fa-eye" id="confirmPasswordToggleIcon"></i>
-                            </button>
-                        </div>
-                        <span asp-validation-for="ConfirmPassword" class="text-danger"></span>
-                    </div>
-
-                    <button type="submit" class="btn btn-success btn-lg w-100 mb-3">
-                        <i class="fas fa-user-plus me-2"></i>
-                        Create Account
-                    </button>
-
-                    <div class="text-center">
-                        <span class="text-muted">Already have an account? </span>
-                        <a asp-action="Login" asp-route-returnurl="@ViewData["ReturnUrl"]" class="text-decoration-none fw-bold">
+                <div class="login-link">
+                    <p>Already have an account? 
+                        <a asp-action="Login" asp-route-returnurl="@ViewData["ReturnUrl"]">
                             Sign in here
                         </a>
-                    </div>
-                </form>
-            </div>
+                    </p>
+                </div>
+            </form>
         </div>
     </div>
 </div>
 
 @section Scripts {
     @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
-    
-    <script>
-        // Password toggle functionality
-        function togglePassword(fieldName) {
-            const passwordInput = document.querySelector(`input[name="${fieldName}"]`);
-            const toggleIcon = document.getElementById(fieldName === 'Password' ? 'passwordToggleIcon' : 'confirmPasswordToggleIcon');
-            
-            if (passwordInput.type === 'password') {
-                passwordInput.type = 'text';
-                toggleIcon.classList.remove('fa-eye');
-                toggleIcon.classList.add('fa-eye-slash');
-            } else {
-                passwordInput.type = 'password';
-                toggleIcon.classList.remove('fa-eye-slash');
-                toggleIcon.classList.add('fa-eye');
-            }
-        }
-
-        // Confirm password validation
-        document.querySelector('input[name="ConfirmPassword"]').addEventListener('input', function() {
-            const password = document.querySelector('input[name="Password"]').value;
-            const confirmPassword = this.value;
-
-            if (confirmPassword && password !== confirmPassword) {
-                this.classList.add('is-invalid');
-                this.classList.remove('is-valid');
-            } else if (confirmPassword) {
-                this.classList.remove('is-invalid');
-                this.classList.add('is-valid');
-            }
-        });
-
-        // Form submission with loading state
-        document.getElementById('registerForm').addEventListener('submit', function(e) {
-            const submitBtn = this.querySelector('button[type="submit"]');
-            submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin me-2"></i>Creating Account...';
-            submitBtn.disabled = true;
-        });
-
-        // Auto-focus on first input
-        document.querySelector('input[name="FirstName"]').focus();
-
-        // Real-time validation
-        const inputs = document.querySelectorAll('input[required]');
-        inputs.forEach(input => {
-            input.addEventListener('blur', function() {
-                if (this.value.trim() === '') {
-                    this.classList.add('is-invalid');
-                } else {
-                    this.classList.remove('is-invalid');
-                    this.classList.add('is-valid');
-                }
-            });
-        });
-
-        // Email validation
-        document.querySelector('input[name="Email"]').addEventListener('input', function() {
-            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-            if (this.value && !emailRegex.test(this.value)) {
-                this.classList.add('is-invalid');
-                this.classList.remove('is-valid');
-            } else if (this.value) {
-                this.classList.remove('is-invalid');
-                this.classList.add('is-valid');
-            }
-        });
-    </script>
+    <script src="~/js/register.js"></script>
 }

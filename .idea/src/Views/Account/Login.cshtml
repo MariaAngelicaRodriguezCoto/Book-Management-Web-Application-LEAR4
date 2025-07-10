@@ -1,117 +1,86 @@
 @model BookManagement.Models.ViewModels.LoginViewModel
-
 @{
     ViewData["Title"] = "Login";
-    Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<div class="auth-container">
-    <div class="row justify-content-center">
-        <div class="col-md-6 col-lg-5">
-            <div class="auth-card">
-                <div class="auth-header text-center mb-4">
-                    <div class="auth-logo mb-3">
-                        <i class="fas fa-book-open fa-3x text-primary"></i>
+@section Styles {
+    <link href="~/css/login.css" rel="stylesheet" />
+}
+
+<div class="login-wrapper">
+    <div class="login-background">
+        <div class="background-shapes">
+            <div class="shape shape-1"></div>
+            <div class="shape shape-2"></div>
+            <div class="shape shape-3"></div>
+        </div>
+    </div>
+    
+    <div class="login-container">
+        <div class="login-card">
+            <div class="login-header">
+                <div class="logo-container">
+                    <h1 class="brand-name">BookManager</h1>
+                </div>
+                <div class="welcome-text">
+                    <h2>Welcome Back</h2>
+                    <p>Sign in to continue to your account</p>
+                </div>
+            </div>
+
+            <form asp-action="Login" asp-route-returnurl="@ViewData["ReturnUrl"]" method="post" id="loginForm" class="login-form">
+                <div asp-validation-summary="ModelOnly" class="alert alert-danger validation-summary" role="alert"></div>
+                
+                <div class="form-group">
+                    <div class="input-container">
+                        <label>Email</label>
+                        <input asp-for="Email"
+                               class="form-input" 
+                               placeholder="user@example.com" 
+                               autocomplete="username" 
+                               required />
+                        <div class="input-border"></div>
                     </div>
-                    <h2 class="auth-title">Welcome Back</h2>
-                    <p class="text-muted">Sign in to your BookManager account</p>
+                    <span asp-validation-for="Email" class="field-validation-error"></span>
                 </div>
 
-                <form asp-action="Login" asp-route-returnurl="@ViewData["ReturnUrl"]" method="post" id="loginForm">
-                    <div asp-validation-summary="ModelOnly" class="alert alert-danger" role="alert"></div>
-                    
-                    <div class="form-floating mb-3">
-                        <input asp-for="Email" class="form-control" placeholder="name@example.com" autocomplete="username" />
-                        <label asp-for="Email">
-                            <i class="fas fa-envelope me-2"></i>Email
-                        </label>
-                        <span asp-validation-for="Email" class="text-danger"></span>
+                <div class="form-group">
+                    <div class="input-container">
+                        <label>Password</label>
+                        <input asp-for="Password"
+                               class="form-input" 
+                               placeholder="password" 
+                               type="password" 
+                               autocomplete="current-password" 
+                               required />
+                        <button type="button" class="password-toggle" id="passwordToggle">
+                            <i class="fas fa-eye" id="passwordToggleIcon"></i>
+                        </button>
+                        <div class="input-border"></div>
                     </div>
+                    <span asp-validation-for="Password" class="field-validation-error"></span>
+                </div>
 
-                    <div class="form-floating mb-3">
-                        <input asp-for="Password" class="form-control" placeholder="Password" type="password" autocomplete="current-password" />
-                        <label asp-for="Password">
-                            <i class="fas fa-lock me-2"></i>Password
-                        </label>
-                        <div class="password-toggle">
-                            <button type="button" class="btn btn-link p-0" onclick="togglePassword()">
-                                <i class="fas fa-eye" id="passwordToggleIcon"></i>
-                            </button>
-                        </div>
-                        <span asp-validation-for="Password" class="text-danger"></span>
+                <button type="submit" class="login-btn" id="loginBtn">
+                    <span class="btn-text">Sign In</span>
+                    <div class="btn-loader">
+                        <div class="spinner"></div>
                     </div>
+                </button>
 
-                    <div class="row mb-3">
-                        <div class="col-md-6">
-                            <div class="form-check">
-                                <input asp-for="RememberMe" class="form-check-input" />
-                                <label asp-for="RememberMe" class="form-check-label">
-                                    Remember me
-                                </label>
-                            </div>
-                        </div>
-                    </div>
-
-                    <button type="submit" class="btn btn-primary btn-lg w-100 mb-3">
-                        <i class="fas fa-sign-in-alt me-2"></i>
-                        Sign In
-                    </button>
-
-                    <div class="text-center">
-                        <span class="text-muted">Don't have an account? </span>
-                        <a asp-action="Register" asp-route-returnurl="@ViewData["ReturnUrl"]" class="text-decoration-none fw-bold">
+                <div class="register-link">
+                    <p>Don't have an account? 
+                        <a asp-action="Register" asp-route-returnurl="@ViewData["ReturnUrl"]">
                             Create one here
                         </a>
-                    </div>
-                </form>
-            </div>
+                    </p>
+                </div>
+            </form>
         </div>
     </div>
 </div>
 
 @section Scripts {
     @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
-    
-    <script>
-        function togglePassword() {
-            const passwordInput = document.querySelector('input[name="Password"]');
-            const toggleIcon = document.getElementById('passwordToggleIcon');
-            
-            if (passwordInput.type === 'password') {
-                passwordInput.type = 'text';
-                toggleIcon.classList.remove('fa-eye');
-                toggleIcon.classList.add('fa-eye-slash');
-            } else {
-                passwordInput.type = 'password';
-                toggleIcon.classList.remove('fa-eye-slash');
-                toggleIcon.classList.add('fa-eye');
-            }
-        }
-
-        document.getElementById('loginForm').addEventListener('submit', function(e) {
-            const submitBtn = this.querySelector('button[type="submit"]');
-            submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin me-2"></i>Signing In...';
-            submitBtn.disabled = true;
-        });
-
-        document.querySelector('input[name="Email"]').focus();
-
-        document.addEventListener('keypress', function(e) {
-            if (e.key === 'Enter' && e.target.tagName !== 'BUTTON') {
-                document.getElementById('loginForm').submit();
-            }
-        });
-
-        const inputs = document.querySelectorAll('input[required]');
-        inputs.forEach(input => {
-            input.addEventListener('blur', function() {
-                if (this.value.trim() === '') {
-                    this.classList.add('is-invalid');
-                } else {
-                    this.classList.remove('is-invalid');
-                    this.classList.add('is-valid');
-                }
-            });
-        });
-    </script>
+    <script src="~/js/login.js"></script>
 }

@@ -1,133 +1,207 @@
 @model BookManagement.Models.Book
-
 @{
     ViewData["Title"] = "Add New Book";
 }
 
-<div class="page-header">
-    <div class="row align-items-center">
-        <div class="col">
-            <h1 class="page-title">
-                <i class="fas fa-plus-circle me-2 text-success"></i>
-                Add New Book
-            </h1>
-            <p class="text-muted">Add a new book to your library</p>
-        </div>
-        <div class="col-auto">
-            <a asp-action="Index" class="btn btn-outline-secondary">
-                <i class="fas fa-arrow-left me-2"></i>Back to Books
-            </a>
+@section Styles {
+    <link href="~/css/create-book.css" rel="stylesheet" />
+}
+
+<div class="create-book-wrapper">
+    <div class="create-book-background">
+        <div class="background-shapes">
+            <div class="shape shape-1"></div>
+            <div class="shape shape-2"></div>
+            <div class="shape shape-3"></div>
         </div>
     </div>
-</div>
 
-<div class="row justify-content-center">
-    <div class="col-lg-8">
-        <div class="card shadow-sm border-0">
-            <div class="card-body p-4">
-                <form asp-action="Create" id="createBookForm">
-                    <div asp-validation-summary="ModelOnly" class="alert alert-danger" role="alert"></div>
-                    
-                    <div class="row">
-                        <div class="col-md-8">
-                            <div class="form-floating mb-3">
-                                <input asp-for="Title" class="form-control" placeholder="Book Title" />
-                                <label asp-for="Title" class="form-label">
-                                    <i class="fas fa-book me-2"></i>Book Title
-                                </label>
-                                <span asp-validation-for="Title" class="text-danger"></span>
-                            </div>
-
-                            <div class="form-floating mb-3">
-                                <input asp-for="Author" class="form-control" placeholder="Author Name" />
-                                <label asp-for="Author" class="form-label">
-                                    <i class="fas fa-user me-2"></i>Author
-                                </label>
-                                <span asp-validation-for="Author" class="text-danger"></span>
-                            </div>
-
-                            <div class="row">
-                                <div class="col-md-6">
-                                    <div class="form-floating mb-3">
-                                        <select asp-for="Genre" class="form-select">
-                                            <option value="">Select Genre</option>
-                                            <option value="Fiction">Fiction</option>
-                                            <option value="Non-Fiction">Non-Fiction</option>
-                                            <option value="Mystery">Mystery</option>
-                                            <option value="Romance">Romance</option>
-                                            <option value="Science Fiction">Science Fiction</option>
-                                            <option value="Fantasy">Fantasy</option>
-                                            <option value="Biography">Biography</option>
-                                            <option value="History">History</option>
-                                            <option value="Self-Help">Self-Help</option>
-                                            <option value="Other">Other</option>
-                                        </select>
-                                        <label asp-for="Genre" class="form-label">
-                                            <i class="fas fa-tags me-2"></i>Genre
-                                        </label>
-                                        <span asp-validation-for="Genre" class="text-danger"></span>
-                                    </div>
-                                </div>
-                                <div class="col-md-6">
-                                    <div class="form-floating mb-3">
-                                        <input asp-for="PublicationDate" class="form-control" type="date" />
-                                        <label asp-for="PublicationDate" class="form-label">
-                                            <i class="fas fa-calendar me-2"></i>Publication Date
-                                        </label>
-                                        <span asp-validation-for="PublicationDate" class="text-danger"></span>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="form-floating mb-3">
-                                <textarea asp-for="Description" class="form-control" placeholder="Book Description" style="height: 120px"></textarea>
-                                <label asp-for="Description" class="form-label">
-                                    <i class="fas fa-align-left me-2"></i>Description
-                                </label>
-                                <span asp-validation-for="Description" class="text-danger"></span>
-                            </div>
-                        </div>
+    <div class="create-book-container">
+        <div class="page-header">
+            <div class="header-content">
+                <div class="header-left">
+                    <div class="page-icon">
+                        <i class="fas fa-plus-circle"></i>
                     </div>
+                    <div class="header-text">
+                        <h1 class="page-title">Add New Book</h1>
+                        <p class="page-subtitle">Add a new book to your library collection</p>
+                    </div>
+                </div>
+                <div class="header-right">
+                    <a asp-action="Index" class="back-btn">
+                        <i class="fas fa-arrow-left"></i>
+                        <span>Back to Books</span>
+                    </a>
+                </div>
+            </div>
+        </div>
 
-                    <hr class="my-4">
+        <div class="form-card">
+            <div class="form-header">
+                <div class="form-progress">
+                    <div class="progress-step active">
+                        <div class="step-number">1</div>
+                        <span class="step-label">Book Details</span>
+                    </div>
+                    <div class="progress-line"></div>
+                    <div class="progress-step">
+                        <div class="step-number">2</div>
+                        <span class="step-label">Review</span>
+                    </div>
+                </div>
+            </div>
 
-                    <div class="d-flex justify-content-between align-items-center">
-                        <div class="form-check">
-                            <input class="form-check-input" type="checkbox" id="saveAndAddAnother">
-                            <label class="form-check-label" for="saveAndAddAnother">
-                                Save and add another book
-                            </label>
+            <form asp-action="Create" id="createBookForm" class="book-form">
+                <div asp-validation-summary="ModelOnly" class="alert alert-danger validation-summary" role="alert"></div>
+                
+                <div class="form-sections">
+                    <div class="form-section active" id="section-1">
+                        <div class="section-header">
+                            <h3>Basic Information</h3>
+                            <p>Enter the essential details about the book</p>
                         </div>
-                        
-                        <div class="btn-group">
-                            <a asp-action="Index" class="btn btn-outline-secondary">
-                                <i class="fas fa-times me-2"></i>Cancel
-                            </a>
-                            <button type="submit" class="btn btn-success btn-lg">
-                                <i class="fas fa-save me-2"></i>Save Book
+
+                        <div class="form-grid">
+                            <div class="form-group full-width">
+                                <div class="input-container">
+                                    <label class="label">Title</label>
+                                    <input asp-for="Title" 
+                                           class="form-input" 
+                                           placeholder="The Great Gatsby" 
+                                           required />
+                                    <div class="input-border"></div>
+                                </div>
+                                <span asp-validation-for="Title" class="field-validation-error"></span>
+                            </div>
+
+                            <div class="form-group full-width">
+                                <div class="input-container">
+                                    <label class="label">Author</label>
+                                    <input asp-for="Author" 
+                                           class="form-input" 
+                                           placeholder="John Doe" 
+                                           required />
+                                    <div class="input-border"></div>
+                                </div>
+                                <span asp-validation-for="Author" class="field-validation-error"></span>
+                            </div>
+
+                            <div class="form-group half-width">
+                                <div class="input-container">
+                                    <label class="label">Genre</label>
+                                   <input asp-for="Genre" 
+                                           class="form-input" 
+                                           placeholder="Science Fiction" 
+                                           required />
+                                    <div class="input-border"></div>
+                                </div>
+                                <span asp-validation-for="Genre" class="field-validation-error"></span>
+                            </div>
+
+                            <div class="form-group half-width">
+                                <div class="input-container">
+                                    <label class="label">Publication Date</label>
+                                    <input asp-for="PublicationDate" 
+                                           class="form-input" 
+                                           type="date" />
+                                    <div class="input-border"></div>
+                                </div>
+                                <span asp-validation-for="PublicationDate" class="field-validation-error"></span>
+                            </div>
+
+                            <div class="form-group full-width">
+                                <div class="input-container">
+                                    <label class="label">Description</label>
+                                    <textarea asp-for="Description" 
+                                              class="form-textarea" 
+                                              placeholder="A novel about a man who builds a new life for himself in the American Dream"
+                                              rows="4"></textarea>
+                                    <div class="input-border"></div>
+                                    <div class="character-count">
+                                        <span id="charCount">0</span> characters
+                                    </div>
+                                </div>
+                                <span asp-validation-for="Description" class="field-validation-error"></span>
+                            </div>
+                        </div>
+
+                        <div class="section-actions">
+                            <button type="button" class="next-btn" id="nextBtn">
+                                <span>Continue</span>
+                                <i class="fas fa-arrow-right"></i>
                             </button>
                         </div>
                     </div>
-                </form>
-            </div>
+
+                    <div class="form-section" id="section-2">
+                        <div class="section-header">
+                            <h3>Review & Save</h3>
+                            <p>Review your book details before saving</p>
+                        </div>
+
+                        <div class="review-card">
+                            <div class="review-item">
+                                <label>Title:</label>
+                                <span id="reviewTitle">-</span>
+                            </div>
+                            <div class="review-item">
+                                <label>Author:</label>
+                                <span id="reviewAuthor">-</span>
+                            </div>
+                            <div class="review-item">
+                                <label>Genre:</label>
+                                <span id="reviewGenre">-</span>
+                            </div>
+                            <div class="review-item">
+                                <label>Publication Date:</label>
+                                <span id="reviewDate">-</span>
+                            </div>
+                            <div class="review-item">
+                                <label>Description:</label>
+                                <span id="reviewDescription">-</span>
+                            </div>
+                        </div>
+
+                        <div class="save-options">
+                            <div class="save-option">
+                                <input class="custom-checkbox" type="checkbox" id="saveAndAddAnother">
+                                <label for="saveAndAddAnother" class="checkbox-label">
+                                    <span class="checkmark"></span>
+                                    Save and add another book
+                                </label>
+                            </div>
+                        </div>
+
+                        <div class="section-actions">
+                            <button type="button" class="back-section-btn" id="backBtn">
+                                <i class="fas fa-arrow-left"></i>
+                                <span>Back</span>
+                            </button>
+                            <div class="submit-actions">
+                                <a asp-action="Index" class="cancel-btn">
+                                    <i class="fas fa-times"></i>
+                                    <span>Cancel</span>
+                                </a>
+                                <button type="submit" class="save-btn" id="saveBtn">
+                                    <span class="btn-text">
+                                        <i class="fas fa-save"></i>
+                                        Save Book
+                                    </span>
+                                    <div class="btn-loader">
+                                        <div class="spinner"></div>
+                                    </div>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </form>
         </div>
     </div>
 </div>
 
 @section Scripts {
     @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
-    
-    <script>
-        document.getElementById('createBookForm').addEventListener('submit', function(e) {
-            const submitBtn = this.querySelector('button[type="submit"]');
-            submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin me-2"></i>Saving...';
-            submitBtn.disabled = true;
-        });
-
-        const textarea = document.querySelector('textarea[name="Description"]');
-        textarea.addEventListener('input', function() {
-            this.style.height = 'auto';
-            this.style.height = this.scrollHeight + 'px';
-        });
-    </script>
+    <script src="~/js/create-book.js"></script>
 }

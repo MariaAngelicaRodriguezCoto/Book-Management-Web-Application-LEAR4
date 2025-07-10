@@ -1,5 +1,6 @@
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Identity;
 using BookManagement.Models;
 using BookManagement.Services;
 
@@ -9,14 +10,19 @@ namespace BookManagement.Controllers;
 public class BooksController : Controller
 {
     private readonly IBookService _bookService;
+    private readonly UserManager<ApplicationUser> _userManager;
 
-    public BooksController(IBookService bookService)
+    public BooksController(IBookService bookService, UserManager<ApplicationUser> userManager)
     {
         _bookService = bookService;
+        _userManager = userManager;
     }
 
     public async Task<IActionResult> Index(string searchTerm)
     {
+        var user = await _userManager.GetUserAsync(User);
+        ViewData["UserFullName"] = $"{user?.FirstName} {user?.LastName}".Trim();
+        
         var books = string.IsNullOrEmpty(searchTerm) 
             ? await _bookService.GetAllBooksAsync()
             : await _bookService.SearchBooksAsync(searchTerm);
@@ -62,9 +68,16 @@ public class BooksController : Controller
 
         if (ModelState.IsValid)
         {
-            await _bookService.UpdateBookAsync(book);
-            TempData["Success"] = "Book updated successfully!";
-            return RedirectToAction(nameof(Index));
+            try
+            {
+                await _bookService.UpdateBookAsync(book);
+                ViewData["Success"] = "Book updated successfully!";
+                return View(book);
+            }
+            catch (Exception)
+            {
+                ModelState.AddModelError("", "An error occurred while updating the book.");
+            }
         }
         return View(book);
     }

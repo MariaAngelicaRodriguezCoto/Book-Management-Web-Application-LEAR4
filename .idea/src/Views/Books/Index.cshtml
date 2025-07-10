@@ -1,185 +1,189 @@
 @model IEnumerable<BookManagement.Models.Book>
-
 @{
     ViewData["Title"] = "Books";
+    var userFullName = ViewData["UserFullName"] as string;
 }
 
-<div class="page-header">
-    <div class="row align-items-center">
-        <div class="col">
-            <h1 class="page-title">
-                <i class="fas fa-books me-2 text-primary"></i>
-                Book Library
-            </h1>
-            <p class="text-muted">Manage your book collection</p>
-        </div>
-        <div class="col-auto">
-            <a asp-action="Create" class="btn btn-primary btn-lg shadow-sm">
-                <i class="fas fa-plus me-2"></i>Add New Book
-            </a>
-        </div>
-    </div>
-</div>
+@section Styles {
+    <link href="~/css/book-index.css" rel="stylesheet" />
+}
 
-<div class="row mb-4">
-    <div class="col-md-6">
-        <div class="search-box">
-            <div class="input-group">
-                <span class="input-group-text bg-white border-end-0">
-                    <i class="fas fa-search text-muted"></i>
-                </span>
-                <input type="text" class="form-control border-start-0" placeholder="Search books..." id="searchInput">
-            </div>
+<div class="index-wrapper">
+    <div class="index-background">
+        <div class="background-shapes">
+            <div class="shape shape-1"></div>
+            <div class="shape shape-2"></div>
         </div>
     </div>
-    <div class="col-md-6">
-        <div class="d-flex justify-content-end align-items-center">
-            <div class="view-toggle me-3">
-                <div class="btn-group" role="group">
-                    <button type="button" class="btn btn-outline-secondary active" id="gridView">
-                        <i class="fas fa-th"></i>
-                    </button>
-                    <button type="button" class="btn btn-outline-secondary" id="listView">
-                        <i class="fas fa-list"></i>
-                    </button>
+
+    <header class="main-header">
+        <div class="container">
+            <div class="header-content">
+                <div class="user-info">
+                    <i class="fas fa-user-circle"></i>
+                    <span class="user-name">@userFullName</span>
                 </div>
-            </div>
-            <select class="form-select" style="width: auto;" id="sortSelect">
-                <option value="title">Sort by Title</option>
-                <option value="author">Sort by Author</option>
-                <option value="date">Sort by Date</option>
-            </select>
-        </div>
-    </div>
-</div>
-
-@if (Model.Any())
-{
-    <div id="booksContainer" class="books-grid">
-        @foreach (var book in Model)
-        {
-            <div class="book-card" data-title="@book.Title.ToLower()" data-author="@book.Author.ToLower()">
-                <div class="card h-100 shadow-sm border-0 book-item">
-                    <div class="card-img-container">
-                        <img src="/images/book-placeholder.jpg" class="card-img-top" alt="@book.Title">
-                        <div class="card-img-overlay-actions">
-                            <div class="btn-group">
-                                <a asp-action="Edit" asp-route-id="@book.Id" class="btn btn-sm btn-primary" title="Edit">
-                                    <i class="fas fa-edit"></i>
-                                </a>
-                                <button type="button" class="btn btn-sm btn-danger" title="Delete" 
-                                        onclick="confirmDelete(@book.Id, '@book.Title')">
-                                    <i class="fas fa-trash"></i>
-                                </button>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <div class="card-body d-flex flex-column">
-                        <h5 class="card-title text-truncate" title="@book.Title">@book.Title</h5>
-                        <p class="card-text text-muted mb-2">
-                            <i class="fas fa-user me-1"></i>@book.Author
-                        </p>
-                        
-                        @if (!string.IsNullOrEmpty(book.Genre))
-                        {
-                            <span class="badge bg-secondary mb-2">@book.Genre</span>
-                        }
-                        
-                        <p class="card-text flex-grow-1">
-                            @(book.Description?.Length > 100 ? book.Description.Substring(0, 100) + "..." : book.Description)
-                        </p>
-                        
-                        <div class="card-footer-info mt-auto">
-                            <small class="text-muted">
-                                <i class="fas fa-calendar me-1"></i>
-                                Published: @book.PublicationDate.ToString("MMM yyyy")
-                            </small>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        }
-    </div>
-}
-else
-{
-    <div class="empty-state text-center py-5">
-        <div class="empty-state-icon mb-3">
-            <i class="fas fa-book-open fa-4x text-muted"></i>
-        </div>
-        <h3 class="text-muted">No books found</h3>
-        <p class="text-muted mb-4">Start building your library by adding your first book.</p>
-        <a asp-action="Create" class="btn btn-primary btn-lg">
-            <i class="fas fa-plus me-2"></i>Add Your First Book
-        </a>
-    </div>
-}
-
-<div class="modal fade" id="deleteModal" tabindex="-1">
-    <div class="modal-dialog">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title">
-                    <i class="fas fa-exclamation-triangle text-warning me-2"></i>
-                    Confirm Delete
-                </h5>
-                <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
-            </div>
-            <div class="modal-body">
-                <p>Are you sure you want to delete "<span id="bookTitle"></span>"?</p>
-                <p class="text-muted">This action cannot be undone.</p>
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
-                <form id="deleteForm" method="post" class="d-inline">
-                    <button type="submit" class="btn btn-danger">
-                        <i class="fas fa-trash me-2"></i>Delete Book
+                <form asp-controller="Account" asp-action="Logout" method="post">
+                    <button type="submit" class="btn-logout">
+                        <i class="fas fa-sign-out-alt"></i>
+                        Logout
                     </button>
                 </form>
             </div>
+        </div>
+    </header>
+
+    <div class="container">
+        <div class="page-header">
+            <div class="row align-items-center justify-content-between">
+                <div class="col-auto">
+                    <h1 class="page-title">
+                        Book Library
+                    </h1>
+                    <p class="page-subtitle">Manage your book collection</p>
+                </div>
+                <div class="col-auto ms-auto">
+                    <a asp-action="Create" class="btn-add-book">
+                        Add New Book
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <div class="controls-row">
+            <div class="row mb-4">
+                <div class="col-md-6">
+                    <div class="search-container">
+                        <div class="search-wrapper">
+                            <i class="fas fa-search search-icon"></i>
+                            <input type="text" class="search-input" placeholder="Search books..." id="searchInput">
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="controls-right">
+                        <div class="view-toggle">
+                            <button type="button" class="view-btn active" id="gridView">
+                                <i class="fas fa-th"></i>
+                            </button>
+                            <button type="button" class="view-btn" id="listView">
+                                <i class="fas fa-list"></i>
+                            </button>
+                        </div>
+                        <select class="sort-select" id="sortSelect">
+                            <option value="title">Sort by Title</option>
+                            <option value="author">Sort by Author</option>
+                            <option value="date">Sort by Date</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        @if (Model.Any())
+        {
+            <div id="booksContainer" class="books-grid">
+                @foreach (var book in Model)
+                {
+                    <div class="book-card" data-title="@book.Title.ToLower()" data-author="@book.Author.ToLower()">
+                        <div class="book-item">
+                            <div class="book-content">
+                                <div class="book-header">
+                                    <div class="book-info">
+                                        <h5 class="book-title" title="@book.Title">@book.Title</h5>
+                                        <p class="book-author">
+                                            <i class="fas fa-user"></i>
+                                            @book.Author
+                                        </p>
+                                    </div>
+                                    <div class="action-buttons">
+                                        <a asp-action="Details" asp-route-id="@book.Id" class="action-btn view-action" title="View Details">
+                                            <i class="fas fa-eye"></i>
+                                        </a>
+                                        <a asp-action="Edit" asp-route-id="@book.Id" class="action-btn edit-action" title="Edit">
+                                            <i class="fas fa-edit"></i>
+                                        </a>
+                                        <button type="button" class="action-btn delete-action" title="Delete" onclick="confirmDelete(@book.Id, '@book.Title')">
+                                            <i class="fas fa-trash"></i>
+                                        </button>
+                                    </div>
+                                </div>
+                                
+                                @if (!string.IsNullOrEmpty(book.Genre))
+                                {
+                                    <p class="book-genre">
+                                        <i class="fas fa-bookmark"></i>
+                                        @book.Genre
+                                    </p>
+                                }
+                                
+                                @if (!string.IsNullOrEmpty(book.Description))
+                                {
+                                    <p class="book-description">
+                                        @(book.Description.Length > 100 ? book.Description.Substring(0, 100) + "..." : book.Description)
+                                    </p>
+                                }
+                                
+                                <div class="book-footer">
+                                    <small class="publication-date">
+                                        <i class="fas fa-calendar"></i>
+                                        Published: @book.PublicationDate.ToString("MMM yyyy")
+                                    </small>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                }
+            </div>
+        }
+        else
+        {
+            <div class="empty-state">
+                <div class="empty-icon">
+                    <i class="fas fa-book-open"></i>
+                </div>
+                <h3 class="empty-title">No books found</h3>
+                <p class="empty-text">Start building your library by adding your first book.</p>
+                <a asp-action="Create" class="btn-add-first">
+                    <i class="fas fa-plus me-2"></i>
+                    Add Your First Book
+                </a>
+            </div>
+        }
+    </div>
+</div>
+
+<!-- Delete Confirmation Modal -->
+<div class="modal-overlay" id="deleteModal">
+    <div class="modal-container">
+        <div class="modal-header">
+            <div class="modal-icon">
+                <i class="fas fa-exclamation-triangle"></i>
+            </div>
+            <h3 class="modal-title">Confirm Delete</h3>
+            <button class="modal-close" onclick="closeDeleteModal()">
+                <i class="fas fa-times"></i>
+            </button>
+        </div>
+        <div class="modal-body">
+            <p class="modal-message">Are you sure you want to delete "<span id="bookTitle"></span>"?</p>
+            <p class="modal-warning">This action cannot be undone and will permanently remove all book data.</p>
+        </div>
+        <div class="modal-actions">
+            <button class="modal-btn cancel-btn" onclick="closeDeleteModal()">
+                <i class="fas fa-times"></i>
+                Cancel
+            </button>
+            <form id="deleteForm" method="post" class="delete-form">
+                <button type="submit" class="modal-btn delete-btn">
+                    <i class="fas fa-trash"></i>
+                    Delete Book
+                </button>
+            </form>
         </div>
     </div>
 </div>
 
 @section Scripts {
-    <script>
-        document.getElementById('searchInput').addEventListener('input', function() {
-            const searchTerm = this.value.toLowerCase();
-            const bookCards = document.querySelectorAll('.book-card');
-            
-            bookCards.forEach(card => {
-                const title = card.dataset.title;
-                const author = card.dataset.author;
-                const isVisible = title.includes(searchTerm) || author.includes(searchTerm);
-                card.style.display = isVisible ? 'block' : 'none';
-            });
-        });
-
-        document.getElementById('gridView').addEventListener('click', function() {
-            document.getElementById('booksContainer').className = 'books-grid';
-            this.classList.add('active');
-            document.getElementById('listView').classList.remove('active');
-        });
-
-        document.getElementById('listView').addEventListener('click', function() {
-            document.getElementById('booksContainer').className = 'books-list';
-            this.classList.add('active');
-            document.getElementById('gridView').classList.remove('active');
-        });
-
-        function confirmDelete(bookId, bookTitle) {
-            document.getElementById('bookTitle').textContent = bookTitle;
-            document.getElementById('deleteForm').action = '/Books/Delete/' + bookId;
-            new bootstrap.Modal(document.getElementById('deleteModal')).show();
-        }
-
-        document.querySelectorAll('a[asp-action], button[type="submit"]').forEach(element => {
-            element.addEventListener('click', function() {
-                if (!this.classList.contains('btn-secondary')) {
-                    document.getElementById('loading-overlay').style.display = 'flex';
-                }
-            });
-        });
-    </script>
+    <script src="~/js/book-index.js"></script>
 }

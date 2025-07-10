@@ -1,12 +1,52 @@
 {
   "Files": [
     {
-      "Id": "/Users/angelicarodriguez/Documents/Book-Management-Web-Application-LEAR4/Book-Management-Web-Application-LEAR4/.idea/src/wwwroot/css/site.css",
-      "PackagePath": "staticwebassets/css/site.css"
+      "Id": "/Users/angelicarodriguez/Documents/Book-Management-Web-Application-LEAR4/Book-Management-Web-Application-LEAR4/.idea/src/wwwroot/css/book-details.css",
+      "PackagePath": "staticwebassets/css/book-details.css"
     },
     {
-      "Id": "/Users/angelicarodriguez/Documents/Book-Management-Web-Application-LEAR4/Book-Management-Web-Application-LEAR4/.idea/src/wwwroot/js/site.js",
-      "PackagePath": "staticwebassets/js/site.js"
+      "Id": "/Users/angelicarodriguez/Documents/Book-Management-Web-Application-LEAR4/Book-Management-Web-Application-LEAR4/.idea/src/wwwroot/css/book-edit.css",
+      "PackagePath": "staticwebassets/css/book-edit.css"
+    },
+    {
+      "Id": "/Users/angelicarodriguez/Documents/Book-Management-Web-Application-LEAR4/Book-Management-Web-Application-LEAR4/.idea/src/wwwroot/css/book-index.css",
+      "PackagePath": "staticwebassets/css/book-index.css"
+    },
+    {
+      "Id": "/Users/angelicarodriguez/Documents/Book-Management-Web-Application-LEAR4/Book-Management-Web-Application-LEAR4/.idea/src/wwwroot/css/create-book.css",
+      "PackagePath": "staticwebassets/css/create-book.css"
+    },
+    {
+      "Id": "/Users/angelicarodriguez/Documents/Book-Management-Web-Application-LEAR4/Book-Management-Web-Application-LEAR4/.idea/src/wwwroot/css/login.css",
+      "PackagePath": "staticwebassets/css/login.css"
+    },
+    {
+      "Id": "/Users/angelicarodriguez/Documents/Book-Management-Web-Application-LEAR4/Book-Management-Web-Application-LEAR4/.idea/src/wwwroot/css/register.css",
+      "PackagePath": "staticwebassets/css/register.css"
+    },
+    {
+      "Id": "/Users/angelicarodriguez/Documents/Book-Management-Web-Application-LEAR4/Book-Management-Web-Application-LEAR4/.idea/src/wwwroot/js/book-details.js",
+      "PackagePath": "staticwebassets/js/book-details.js"
+    },
+    {
+      "Id": "/Users/angelicarodriguez/Documents/Book-Management-Web-Application-LEAR4/Book-Management-Web-Application-LEAR4/.idea/src/wwwroot/js/book-edit.js",
+      "PackagePath": "staticwebassets/js/book-edit.js"
+    },
+    {
+      "Id": "/Users/angelicarodriguez/Documents/Book-Management-Web-Application-LEAR4/Book-Management-Web-Application-LEAR4/.idea/src/wwwroot/js/book-index.js",
+      "PackagePath": "staticwebassets/js/book-index.js"
+    },
+    {
+      "Id": "/Users/angelicarodriguez/Documents/Book-Management-Web-Application-LEAR4/Book-Management-Web-Application-LEAR4/.idea/src/wwwroot/js/create-book.js",
+      "PackagePath": "staticwebassets/js/create-book.js"
+    },
+    {
+      "Id": "/Users/angelicarodriguez/Documents/Book-Management-Web-Application-LEAR4/Book-Management-Web-Application-LEAR4/.idea/src/wwwroot/js/login.js",
+      "PackagePath": "staticwebassets/js/login.js"
+    },
+    {
+      "Id": "/Users/angelicarodriguez/Documents/Book-Management-Web-Application-LEAR4/Book-Management-Web-Application-LEAR4/.idea/src/wwwroot/js/register.js",
+      "PackagePath": "staticwebassets/js/register.js"
     },
     {
       "Id": "obj/Debug/net8.0/staticwebassets/msbuild.BookManagement.Microsoft.AspNetCore.StaticWebAssets.props",

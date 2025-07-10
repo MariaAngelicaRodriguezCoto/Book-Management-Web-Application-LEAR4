@@ -1,31 +1,118 @@
 @model BookManagement.Models.Book
+@{
+    ViewData["Title"] = "Book Details";
+}
 
-<div class="container">
-    <h2>Book Details</h2>
-    <hr />
-    <div class="row">
-        <div class="col-md-8">
-            <dl class="row">
-                <dt class="col-sm-3">Title</dt>
-                <dd class="col-sm-9">@Model.Title</dd>
+@section Styles {
+    <link href="~/css/book-details.css" rel="stylesheet" />
+}
 
-                <dt class="col-sm-3">Author</dt>
-                <dd class="col-sm-9">@Model.Author</dd>
+<div class="details-wrapper">
+    <div class="details-background">
+        <div class="background-shapes">
+            <div class="shape shape-1"></div>
+            <div class="shape shape-2"></div>
+            <div class="shape shape-3"></div>
+        </div>
+    </div>
 
-                <dt class="col-sm-3">Genre</dt>
-                <dd class="col-sm-9">@Model.Genre</dd>
+    <div class="details-container">
+        <div class="page-header">
+            <div class="header-content">
+                <div class="header-left">
+                    <div class="page-icon">
+                        <i class="fas fa-book-open"></i>
+                    </div>
+                    <div class="header-text">
+                        <h1 class="page-title">Book Details</h1>
+                        <p class="page-subtitle">View complete information about this book</p>
+                    </div>
+                </div> 
+            </div>
+        </div>
 
-                <dt class="col-sm-3">Publication Date</dt>
-                <dd class="col-sm-9">@Model.PublicationDate.ToShortDateString()</dd>
+        <div class="book-details-card">
+            <div class="book-header">
+                <div class="book-title-section">
+                    <h2 class="book-title">@Model.Title</h2>
+                    </div>
+                </div>
+            </div>
 
-                <dt class="col-sm-3">Description</dt>
-                <dd class="col-sm-9">@Model.Description</dd>
-            </dl>
+            <div class="book-content">
+                <div class="content-section">
+                    <h3 class="section-title">
+                        <i class="fas fa-info-circle"></i>
+                        Book Information
+                    </h3>
+                    <div class="info-grid">
+                        <div class="info-item">
+                            <div class="info-content">
+                                <label class="info-label">Title</label>
+                                <span class="info-value">@Model.Title</span>
+                            </div>
+                        </div>
 
-            <div>
-                <a asp-action="Edit" asp-route-id="@Model.Id" class="btn btn-warning">Edit</a>
-                <a asp-action="Index" class="btn btn-secondary">Back to List</a>
+                        <div class="info-item">
+                            <div class="info-content">
+                                <label class="info-label">Author</label>
+                                <span class="info-value">@Model.Author</span>
+                            </div>
+                        </div>
+
+                        <div class="info-item">
+                            <div class="info-content">
+                                <label class="info-label">Genre</label>
+                                <span class="info-value">@Model.Genre</span>
+                            </div>
+                        </div>
+
+                        <div class="info-item">
+                            <div class="info-content">
+                                <label class="info-label">Publication Date</label>
+                                <span class="info-value">@Model.PublicationDate.ToString("MMMM dd, yyyy")</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                @if (!string.IsNullOrEmpty(Model.Description))
+                {
+                    <div class="content-section">
+                        <h3 class="section-title">
+                            <i class="fas fa-align-left"></i>
+                            Description
+                        </h3>
+                        <div class="description-content">
+                            <p class="description-text">@Model.Description</p>
+                            <button class="expand-btn" id="expandBtn" onclick="toggleDescription()">
+                                <span id="expandText">Read More</span>
+                                <i class="fas fa-chevron-down" id="expandIcon"></i>
+                            </button>
+                        </div>
+                    </div>
+                }
+            </div>
+
+            <div class="book-actions">
+                <div class="action-group primary-actions">
+                    <a asp-action="Edit" asp-route-id="@Model.Id" class="primary-btn edit-btn">
+                        <i class="fas fa-edit"></i>
+                        <span>Edit Book</span>
+                    </a>
+                </div>
+
+                <div class="action-group secondary-actions">
+                    <a asp-action="Index" class="secondary-btn back-btn">
+                        <i class="fas fa-arrow-left"></i>
+                        <span>Back to List</span>
+                    </a>
+                </div>
             </div>
         </div>
     </div>
 </div>
+
+@section Scripts {
+    <script src="~/js/book-details.js"></script>
+}
